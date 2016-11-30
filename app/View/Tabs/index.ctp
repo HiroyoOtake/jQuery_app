@@ -34,6 +34,7 @@
         // $(".slide-content").hide(); //内容を全て表示にする
         $(".slide").click(function(){ //タブのクリック時にアクションが起きる
 		$(".slide-content").slideUp(); //スライドアップで内容を非表示にする
+		$(this).next().slideDown(); //クリックした要素の次の要素を取得 今回はp
         });
     });
 </script>
