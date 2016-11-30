@@ -27,7 +27,8 @@
 		$(".tab-content").hide();
 		$("#tab1").show();
 		$(".tab li").click(function() {
-			alert("クリック");
+			$(".tab li").removeClass("active");
+			$(".tab-content").hide();
 		});
 	});
 </script>
