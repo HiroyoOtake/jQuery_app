@@ -1,62 +1,66 @@
 <style>
-    .tab {
-        border-bottom: 1px solid #003d4c;
-        display: table;
-        width: 100%;
-    }
-    .tab > li {
-        display: table-cell;
-        vertical-align: middle;
-        float: left;
-        list-style-type: none;
-        padding: 10px 10px;
+    .slide {
+        padding: 20px;
+        border: 1px solid #eee;
+        border-left-width: 5px;
+        border-radius: 3px;
         cursor: pointer;
     }
-    .active {
-        background-color: #003d4c;
-        color: #ffffff;
-        font-weight: bold:
+    .slide h4 {
+        margin-top: 0;
     }
-    .tab-content {
-        padding: 10px 30px;
+    .slide p:last-child {
+        margin-bottom: 0;
+    }
+    .slide+.slide {
+    }
+    .slide-primary {
+        border-left-color: #428bca;
+    }
+    .slide-primary h4 {
+        color: #428bca;
+    }
+    h4 {
+        margin: 0;
+        color: #000;
+    }
+    .slide-content {
+        padding: 10px 20px;
     }
 </style>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script>
-	$(function(){
-		$(".tab-content").hide(); //タブの内容を一括で非表示にする
-		$("#tab1").show(); //#tab1の内容だけ表示させておく
-		$(".tab li").click(function() { //他のタブをクリックしたときに動作が発生する
-			$(".tab li").removeClass("active"); //アクティブだったタブを非アクティブにする
-			$(".tab-content").hide(); //アクティブだったタブの内容を隠す
-			$(this).addClass("active"); //クリックした要素をthisで取得する 
-						    //active属性を加えて、アクティブにする
-			var target = $(this).data("target"); //dara-targetの属性の値を取得
-			$('#' + target).show(); //クリックしたタブの内容を表示
-		});
-	});
+    $(function(){
+        $(".slide-content").hide(); //内容を全て表示にする
+        $(".slide").click(function(){ //タブのクリック時にアクションが起きる
+            alert("click");
+        });
+    });
 </script>
 
-<h3>タブメニュー</h3>
+<h3>FAQ</h3>
 <?=$this->Session->flash('auth')?>
 
-<ul class="tab">
-    <li class="active" data-target="tab1">javascript</a></li>
-    <li data-target="tab2">jQuery</li>
-    <li data-target="tab3">Node.js</li>
-</ul>
-
-<p class="tab-content" id="tab1">
-    javascriptの話です<br>
-    javascriptは昔は実はあまりよくないものというイメージがありました<br>
+<h4 class="slide slide-primary">Q1. javascriptがわからない</h4>
+<p class="slide-content">
+    まずは文法から覚えていこう!!<br>
+    https://developer.mozilla.org/ja/docs/Web/JavaScript
 </p>
 
-<p class="tab-content" id="tab2">
-    jQueryの話です<br>
-    jQueryがあることで簡単にコーディングできるようになりました<br>
+<h4 class="slide slide-primary">Q2. jQueryがわからない</h4>
+<p class="slide-content">
+    ドキュメントを読んでみよう!!<br>
+    https://api.jquery.com/
 </p>
 
-<p class="tab-content" id="tab3">
-    Node.jsの話です<br>
-    PHPのようにサーバーサイドのプログラムをjavascriptでもかけるようになります<br>
+<h4 class="slide slide-primary">Q3. うまく動かない</h4>
+<p class="slide-content">
+    デベロッパーツールを使おう!!<br>
+    ログをみたり、ブレークポイントを使えばわかるかも？
+</p>
+
+<h4 class="slide slide-primary">Q4. 簡単すぎてもっと難しいことがしたい</h4>
+<p class="slide-content">
+    誰かに教えるつもりで覚えたことを書き出してみよう<br>
+    教えることを前提として文章にすると本当に理解しているかわかるよ。
 </p>
