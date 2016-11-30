@@ -31,9 +31,9 @@
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script>
     $(function(){
-        $(".slide-content").hide(); //内容を全て表示にする
+        // $(".slide-content").hide(); //内容を全て表示にする
         $(".slide").click(function(){ //タブのクリック時にアクションが起きる
-            alert("click");
+		$(".slide-content").slideUp(); //スライドアップで内容を非表示にする
         });
     });
 </script>
