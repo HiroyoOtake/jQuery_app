@@ -24,11 +24,15 @@
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script>
 	$(function(){
-		$(".tab-content").hide();
-		$("#tab1").show();
-		$(".tab li").click(function() {
-			$(".tab li").removeClass("active");
-			$(".tab-content").hide();
+		$(".tab-content").hide(); //タブの内容を一括で非表示にする
+		$("#tab1").show(); //#tab1の内容だけ表示させておく
+		$(".tab li").click(function() { //他のタブをクリックしたときに動作が発生する
+			$(".tab li").removeClass("active"); //アクティブだったタブを非アクティブにする
+			$(".tab-content").hide(); //アクティブだったタブの内容を隠す
+			$(this).addClass("active"); //クリックした要素をthisで取得する 
+						    //active属性を加えて、アクティブにする
+			var target = $(this).data("target"); //dara-targetの属性の値を取得
+			$('#' + target).show(); //クリックしたタブの内容を表示
 		});
 	});
 </script>
